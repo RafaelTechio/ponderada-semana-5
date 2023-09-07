@@ -11,6 +11,8 @@ export default class QueryController {
 
     create = async (req: Request, res: Response) => {
         const body = req.body as ICreateQuery;
+        const cleanedBody:ICreateQuery = {query: body.query}
+        
         const createdId = await this.queryService.doAndCreate(body);
         const createdData = await this.queryService.getById(createdId);
         res.json(createdData);

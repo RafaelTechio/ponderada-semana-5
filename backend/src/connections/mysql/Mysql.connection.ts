@@ -17,6 +17,7 @@ export default class MysqlConnection implements IMysqlConnection {
     }
 
     doQuery = <T = any>(query: string): Promise<{results: T, fields?: mysql.FieldInfo[]}> => {
+        console.log(query)
         return new Promise((resolve, reject) => {
             this.mysqlConnection.query(query, (error, results, fields) => {
                 if(error) reject(error);

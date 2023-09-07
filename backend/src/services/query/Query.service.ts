@@ -32,7 +32,13 @@ export default class QueryService implements IQueryService {
 
         }
 
-        return await this.create(data);
+        return await this.create({
+            query: data.query,
+            fields: data.fields,
+            message: data.message,
+            returnedRows: data.returnedRows || 0,
+            returnedValue: data.returnedValue
+        });
     }
 
     create = async (data: ICreateQuery): Promise<number> => {

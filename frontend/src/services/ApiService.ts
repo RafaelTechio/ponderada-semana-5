@@ -2,9 +2,11 @@ import { Axios } from "axios";
 
 class ApiService {
     private axios: Axios
+    private baseUrl: string = 'http://localhost:3001'; 
+
     constructor() {
         this.axios = new Axios({
-            baseURL: 'http://localhost:3001/'
+            baseURL: this.baseUrl
         })
     }
 
@@ -19,8 +21,19 @@ class ApiService {
     }
 
     createQuery = async (data: any) => {
-        const response = await this.axios.post(`/queries`, data)
-        return JSON.parse(response.data);
+        const result = await fetch(`${this.baseUrl}/queries`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type':  'application/json'
+            }
+        })
+
+        if(!result.ok) {
+            throw new Error('Requisição com erro');
+        }
+
+        return result.json();
     }
 
     updateQuery = async (id: string | number, data: any) => {
@@ -44,8 +57,19 @@ class ApiService {
     }
 
     createEmployee = async (data: any) => {
-        const response = await this.axios.post(`/employees`, JSON.stringify({name: 'teste', address: data.address}));
-        return JSON.parse(response.data);
+        const result = await fetch(`${this.baseUrl}/employees`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type':  'application/json'
+            }
+        })
+
+        if(!result.ok) {
+            throw new Error('Requisição com erro');
+        }
+
+        return result.json();
     }
 
     updateEmployee = async (id: string | number, data: any) => {

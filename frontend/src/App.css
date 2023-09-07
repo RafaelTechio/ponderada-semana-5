@@ -13,6 +13,9 @@
 
 main {
   width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 aside {
@@ -55,4 +58,50 @@ aside > ul > li:hover {
 .bg-light > aside {
   background-color: #083D77;
   color: #EBEBD3;
+}
+
+
+table {
+  border: 1px solid #EBEBD3;
+}
+
+table td {
+  border: 1px solid #EBEBD3;
+}
+
+table th {
+  border: 2px solid #EBEBD3;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-query {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50%;
+}
+
+.row-query > textarea {
+  width: 50%;
+  height: 100%;
+}
+
+.row-query > div {
+  overflow: scroll;
+  width: 50%;
+  height: 100%;
+}
+
+.row-query > div > table {
+  width: 100%;
+  height:  100%;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
 }
