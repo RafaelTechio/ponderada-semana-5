@@ -1,0 +1,58 @@
+.system {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.system > section {
+  height: 50%;
+  display: flex;
+}
+
+main {
+  width: 80%;
+}
+
+aside {
+  width: 20%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 10px 20px;
+}
+
+aside > h2 {
+  margin: 20px 0;
+}
+
+aside > ul > li {
+  list-style: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  margin: 5px;
+}
+
+aside > ul > li:hover {
+  font-size: x-large;
+}
+
+.bg-dark {
+  background-color: #083D77;
+  color: #EBEBD3;
+}
+
+.bg-dark > aside {
+  background-color: #EBEBD3;
+  color: #083D77;
+}
+
+.bg-light {
+  background-color: #EBEBD3;
+  color: #083D77;
+}
+
+.bg-light > aside {
+  background-color: #083D77;
+  color: #EBEBD3;
+}
